@@ -1,0 +1,11 @@
+.valute__cell__difference > svg {
+  width: 1em;
+  height: 1em;
+  fill: red;
+  margin-left: 0.25em;
+}
+
+.valute__cell__difference > svg.grow {
+  transform: scaleY(-1);
+  fill: green;
+}

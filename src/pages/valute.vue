@@ -3,7 +3,15 @@
     <h1>Список валют</h1>
     <Input :value="search" placeholder="Поиск" @change="(v) => (search = v)" />
 
-    <Table :data="currentPage" :fields="tableFields" />
+    <Table :data="currentPage" :fields="tableFields">
+      <template #Previous="{ value, item: info }">
+        <Cell class="valute__cell__difference">
+          <span>{{ roundTo(abs(value - info.Value), 4) }}</span>
+          <LinedArrowIcon :class="{ grow: value > info.Value }" />
+        </Cell>
+      </template>
+    </Table>
+
     <Pagination :page="page" :total="totalPages" @change="(v) => (page = v)" />
   </main>
 </template>
@@ -15,6 +23,7 @@ import { ref, computed } from "vue";
 import { useValutesStore } from "@/stores/valutes";
 
 // Utils
+import roundTo from "@/utils/roundTo";
 import lower from "@/utils/lower";
 
 // Components
@@ -23,7 +32,10 @@ import Table from "@/components/common/Table/index.vue";
 import Cell from "@/components/common/Table/cell.vue";
 import Pagination from "@/components/common/Pagination";
 
-const { ceil } = Math;
+// Icons
+import LinedArrowIcon from "@/components/icons/lined-arrow.vue";
+
+const { ceil, abs } = Math;
 
 const valutes = useValutesStore();
 
@@ -64,4 +76,4 @@ const tableFields = ref({
 });
 </script>
 
-<style src="@/assets/css/pages/converter.css" />
+<style src="@/assets/css/pages/valute.css" />
