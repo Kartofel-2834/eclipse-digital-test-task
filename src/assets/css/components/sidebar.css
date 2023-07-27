@@ -1,0 +1,6 @@
+.sidebar {
+  width: fit-content;
+  min-width: 20em;
+  height: 100vh;
+  background-color: var(--primary);
+}

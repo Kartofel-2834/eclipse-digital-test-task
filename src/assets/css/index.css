@@ -1,0 +1,101 @@
+@keyframes page-mount {
+  from {
+    transform: translateY(4em);
+    opacity: 0;
+  }
+
+  to {
+    transform: none;
+    opacity: 1;
+  }
+}
+
+:root {
+  --text: #1c1c1c;
+  /* --primary: #1b35ae; */
+  --primary: #2e65ce;
+  --secondary: #8eda8f;
+  --grey: #efefef;
+}
+
+* {
+  font-family: sans-serif;
+  margin: 0;
+  color: var(--text);
+}
+
+*::-webkit-scrollbar {
+  width: 8px;
+}
+
+*::-webkit-scrollbar-track {
+  background-color: var(--grey);
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--primary);
+}
+
+body {
+  background-color: white;
+  padding: 2em;
+}
+
+span {
+  color: inherit;
+}
+
+nav {
+  display: grid;
+  grid-auto-columns: 1fr;
+  grid-auto-flow: column;
+  gap: 1px;
+  background-color: var(--grey);
+  width: fit-content;
+  margin: 0 auto;
+  margin-bottom: 4em;
+  box-shadow: 0px 4px 17px -6px rgba(34, 60, 80, 0.4);
+}
+
+nav > a:first-child {
+  border-radius: 6px 0 0 6px;
+}
+
+nav > a:last-child {
+  border-radius: 0 6px 6px 0;
+}
+
+a {
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  padding: 1em 2em;
+  font-weight: 600;
+  background-color: white;
+  transition: 0.2s ease-in-out;
+}
+
+a.router-link-active {
+  background-color: var(--primary);
+  color: white;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+  animation-duration: 0.5s;
+  animation-name: page-mount;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+@media (max-width: 1000px) {
+  body {
+    padding: 1em;
+  }
+
+  h1 {
+    text-align: center;
+  }
+}

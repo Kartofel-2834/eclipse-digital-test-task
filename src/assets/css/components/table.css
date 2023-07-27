@@ -1,0 +1,60 @@
+.table {
+  display: grid;
+  grid-auto-flow: row;
+  gap: 0.2em;
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: #f7f5f5;
+  box-shadow: 0px 4px 17px -6px rgba(34, 60, 80, 0.4);
+  overflow: auto;
+}
+
+.table__cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0.75em;
+  background-color: white;
+}
+
+.table__cell_label {
+  padding: 1em;
+  font-weight: 700;
+  background-color: var(--primary);
+  color: white;
+  cursor: default;
+  user-select: none;
+}
+
+.table__cell_label_sortable {
+  cursor: pointer;
+}
+
+.table__cell_label_sortable svg {
+  opacity: 0;
+  transform: scaleY(-1) translateY(2px);
+  transition: 0.2s ease-in-out;
+}
+
+.table__cell_label_sortable:not(
+    .table__cell_label_sort_asc,
+    .table__cell_label_sort_desc
+  ):hover
+  svg {
+  opacity: 0.6;
+}
+
+.table__cell_label_sort_asc svg,
+.table__cell_label_sort_desc svg {
+  opacity: 1;
+  color: var(--primary);
+}
+
+.table__cell_label_sort_asc svg {
+  transform: none;
+}
+
+.table__cell_label svg {
+  font-size: 1.25em;
+}

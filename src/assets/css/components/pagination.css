@@ -1,0 +1,33 @@
+.pagination {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+
+.pagination__element {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  background-color: var(--grey);
+  color: var(--text);
+  font-weight: 700;
+  padding: 0.75em;
+  width: 1em;
+  height: 1em;
+  border-radius: 100%;
+  transition: 0.2s ease-in-out;
+}
+
+.pagination__dots {
+  margin: auto 0;
+}
+
+.pagination__element:not(.pagination__element_active):hover {
+  opacity: 0.7;
+}
+
+.pagination__element.pagination__element_active {
+  color: white;
+  background-color: var(--primary);
+}
